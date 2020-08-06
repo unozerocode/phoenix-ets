@@ -13,12 +13,20 @@ defmodule ElixirWorkshopWeb.Router do
     plug :accepts, ["json"]
   end
 
+  #scope "/", ElixirWorkshopWeb do
+    #pipe_through :browser
+
+    #get "/", PageController, :index
+    #get "/hello", HelloController, :index
+    #resources "/ideas", IdeaController
+  #end
+
   scope "/", ElixirWorkshopWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
-
-    resources "/ideas", IdeaController
+       get "/", PageController, :index
+       get "/hello", HelloController, :index
+       post "/users", HelloController, :users
   end
 
   # Other scopes may use custom stacks.

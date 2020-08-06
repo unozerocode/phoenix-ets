@@ -1,0 +1,11 @@
+<h1>From template: users.html!</h1>
+<h1>Welcome <%= @params["name"] %> <%= @params["age"] %>!</h1>
+<%
+  table_users = :ets.new(:usuarios,[:set])
+  :ets.insert(table_users, {1, @params["name"], @params["age"]})
+  result = :ets.lookup(table_users, 1)
+  [{id, name, age}] = result
+%>
+<label>ID: <%= id %></label>
+<label>Name: <%= name %></label>
+<label>Age: <%= age %></label>
